@@ -83,8 +83,6 @@ public class PostsApiControllerTest {       //TestRestTemplate을 사용하여 �
         List<Posts> all = postsRepository.findAll();
         assertThat(all.get(0).getTitle()).isEqualTo(expectedTitle);
         assertThat(all.get(0).getContent()).isEqualTo(expectedContent);
-
-
     }
 
 }

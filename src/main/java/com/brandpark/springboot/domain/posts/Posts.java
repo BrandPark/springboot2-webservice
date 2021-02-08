@@ -1,5 +1,6 @@
 package com.brandpark.springboot.domain.posts;
 
+import com.brandpark.springboot.domain.BaseEntity;
 import lombok.AccessLevel;
 import lombok.Builder;
 import lombok.Getter;
@@ -10,7 +11,7 @@ import javax.persistence.*;
 @Getter
 @NoArgsConstructor(access = AccessLevel.PRIVATE)
 @Entity //테이블과 링크될 클래스임을 표시.기본값으로 클래스의 이름을 언더스코어 네이밍(_)으로 테이블 이름을 매칭.
-public class Posts {
+public class Posts extends BaseEntity {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY) //PK의 생성규칙. 스프링 부트 2.0에서는 IDENTITY옵션을 해야만 자동 증가.
     private long id;

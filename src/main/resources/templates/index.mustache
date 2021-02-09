@@ -6,6 +6,30 @@
                 <a href="/posts/save" role="button" class="btn btn-primary">글 등록</a>
             </div>
         </div>
+        <table class="table table-hover table-horizontal table-bordered">
+            <thead class="thead-strong">
+            <tr>
+                <td>게시글 번호</td>
+                <td>제목</td>
+                <td>작성자</td>
+                <td>내용</td>
+                <td>수정한날짜</td>
+            </tr>
+            </thead>
+            <tbody class="tbody">
+            <tr>
+                {{#Posts}}
+                    <td>{{id}}</td>
+                    <td>{{title}}</td>
+                    <td>{{author}}</td>
+                    <td>{{content}}</td>
+                    <td>{{modifiedDate}}</td>
+                {{/Posts}}
+            </tr>
+            </tbody>
+            <tbody>
 
+            </tbody>
+        </table>
     </div>
 {{>layout/footer}}

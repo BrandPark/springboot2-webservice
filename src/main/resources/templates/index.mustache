@@ -1,10 +1,9 @@
 {{>layout/header}}
-    <h1>SpringBoot2 WebService만들기</h1>
-    <div class="col-md-12">
-        <div class="row">
-            <div class="col-md-6">
-                <a href="/posts/save" role="button" class="btn btn-primary">글 등록</a>
-            </div>
+<h1>SpringBoot2 WebService만들기</h1>
+<div class="col-md-12">
+    <div class="row">
+        <div class="col-md-6">
+            <a href="/posts/save" role="button" class="btn btn-primary">글 등록</a>
         </div>
         <table class="table table-hover table-horizontal table-bordered">
             <thead class="thead-strong">
@@ -20,16 +19,14 @@
             <tr>
                 {{#Posts}}
                     <td>{{id}}</td>
-                    <td>{{title}}</td>
+                    <td><a href="/posts/update/{{id}}">{{title}}</a></td>
                     <td>{{author}}</td>
                     <td>{{content}}</td>
                     <td>{{modifiedDate}}</td>
                 {{/Posts}}
             </tr>
             </tbody>
-            <tbody>
-
-            </tbody>
         </table>
     </div>
+</div>
 {{>layout/footer}}

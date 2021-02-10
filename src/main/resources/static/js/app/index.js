@@ -7,6 +7,9 @@ var main = {
         $('#update-btn').on('click', function(){
             _this.update();
         });
+        $('#delete-btn').on('click', function(){
+            _this.delete();
+        })
     },
     save: function(){
         var data = {
@@ -47,6 +50,21 @@ var main = {
         }).fail(function(error){
             alert(JSON.stringify(error));
         });
+    },
+    delete: function(){
+        var id = $('#id').val();
+
+        $.ajax({
+            type: 'delete',
+            url: '/api/v1/posts/'+id,
+            contentType: 'application/json; charset=utf-8',
+        }).done(function(){
+            alert("삭제되었습니다.");
+            window.location.href='/';
+        }).fail(function(error){
+            alert("삭제를 실패하였습니다.");
+        });
+
     }
 };
 main.init();

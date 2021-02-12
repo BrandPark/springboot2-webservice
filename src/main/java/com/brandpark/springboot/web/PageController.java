@@ -16,6 +16,7 @@ public class PageController {
     @GetMapping("/")
     public String index(Model model) {
         model.addAttribute("Posts", postsService.findAllDesc());
+
         return "index";
     }
 

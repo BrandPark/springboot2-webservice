@@ -20,7 +20,7 @@ public class PageController {
     @GetMapping("/")
     public String index(Model model, @LoginUser SessionUser sessionUser) {
         model.addAttribute("Posts", postsService.findAllDesc());
-//        SessionUser sessionUser = (SessionUser) httpSession.getAttribute("user");
+
         if(sessionUser != null)
             model.addAttribute("userName", sessionUser.getName());
 

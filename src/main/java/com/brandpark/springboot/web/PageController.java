@@ -1,5 +1,6 @@
 package com.brandpark.springboot.web;
 
+import com.brandpark.springboot.config.auth.LoginUser;
 import com.brandpark.springboot.config.auth.dto.SessionUser;
 import com.brandpark.springboot.service.posts.PostsService;
 import com.brandpark.springboot.web.dto.PostsResponseDto;
@@ -17,9 +18,9 @@ public class PageController {
     private final PostsService postsService;
     private final HttpSession httpSession;
     @GetMapping("/")
-    public String index(Model model) {
+    public String index(Model model, @LoginUser SessionUser sessionUser) {
         model.addAttribute("Posts", postsService.findAllDesc());
-        SessionUser sessionUser = (SessionUser) httpSession.getAttribute("user");
+//        SessionUser sessionUser = (SessionUser) httpSession.getAttribute("user");
         if(sessionUser != null)
             model.addAttribute("userName", sessionUser.getName());
 

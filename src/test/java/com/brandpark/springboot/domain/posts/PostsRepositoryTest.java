@@ -1,11 +1,11 @@
 package com.brandpark.springboot.domain.posts;
 
-import org.junit.Test;
-import org.junit.runner.RunWith;
+import org.junit.*;
+import org.junit.runner.*;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.context.SpringBootTest;
-import org.springframework.test.annotation.Rollback;
 import org.springframework.test.context.junit4.SpringRunner;
+import org.springframework.transaction.annotation.Transactional;
 
 import java.time.LocalDateTime;
 import java.util.List;
@@ -15,12 +15,12 @@ import static org.assertj.core.api.Assertions.assertThat;
 
 @RunWith(SpringRunner.class)
 @SpringBootTest
+@Transactional
 public class PostsRepositoryTest {
     @Autowired
     private PostsRepository postsRepository;
 
     @Test
-    @Rollback
     public void 게시글저장_불러오기() {
         String title = "테스트 게시글";
         String content = "content";
@@ -35,7 +35,6 @@ public class PostsRepositoryTest {
         assertThat(posts.getAuthor()).isEqualTo("박민곤");
     }
 
-    @Rollback
     @Test
     public void BaseEntity_테스트() {
         LocalDateTime now = LocalDateTime.of(2021, 2, 8, 0, 0, 0);

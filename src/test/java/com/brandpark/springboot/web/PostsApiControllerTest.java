@@ -12,9 +12,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.context.SpringBootTest;
 import org.springframework.boot.test.web.client.TestRestTemplate;
 import org.springframework.boot.web.server.LocalServerPort;
-import org.springframework.http.HttpEntity;
 import org.springframework.http.MediaType;
-import org.springframework.http.ResponseEntity;
 import org.springframework.security.test.context.support.WithMockUser;
 import org.springframework.test.context.junit4.SpringRunner;
 import org.springframework.test.web.servlet.MockMvc;
@@ -46,7 +44,7 @@ public class PostsApiControllerTest {       //TestRestTemplate을 사용하여 �
     private MockMvc mvc;
 
     @Before
-    public void setup(){
+    public void setup() {
         mvc = MockMvcBuilders
                 .webAppContextSetup(context)
                 .apply(springSecurity())
@@ -54,7 +52,7 @@ public class PostsApiControllerTest {       //TestRestTemplate을 사용하여 �
     }
 
     @Test
-    @WithMockUser(roles="USER")
+    @WithMockUser(roles = "USER")
     public void Posts_등록된다() throws Exception {
         String title = "title";
         String content = "content";
@@ -66,11 +64,10 @@ public class PostsApiControllerTest {       //TestRestTemplate을 사용하여 �
                 .build();
 
         String url = "http://localhost:" + port + "/api/v1/posts";
-        ResponseEntity<Long> responseEntity = restTemplate.postForEntity(url,requestDto,Long.class);
+        //     ResponseEntity<Long> responseEntity = restTemplate.postForEntity(url,requestDto,Long.class);
 
 //        assertThat(responseEntity.getStatusCode()).isEqualTo(HttpStatus.OK);
 //        assertThat(responseEntity.getBody()).isGreaterThan(0L);
-
         mvc.perform(post(url)
                 .contentType(MediaType.APPLICATION_JSON_UTF8)
                 .content(new ObjectMapper().writeValueAsString(requestDto)))
@@ -99,7 +96,7 @@ public class PostsApiControllerTest {       //TestRestTemplate을 사용하여 �
                 .content(expectedContent)
                 .build();
 
-        HttpEntity<PostsUpdateRequestDto> requestEntity = new HttpEntity<>(requestDto);
+   //     HttpEntity<PostsUpdateRequestDto> requestEntity = new HttpEntity<>(requestDto);
 
         String url = "http://localhost:" + port + "/api/v1/posts/" + updateId;
 //        ResponseEntity<Long> responseEntity = restTemplate.exchange(url, HttpMethod.PUT, requestEntity, Long.class);

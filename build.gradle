@@ -34,6 +34,7 @@ dependencies {
     compile('org.springframework.boot:spring-boot-starter-mustache')   //스프링에서 공식지원하는 mustache 템플릿 엔진.
     compile('org.springframework.boot:spring-boot-starter-oauth2-client')
     compile('org.springframework.session:spring-session-jdbc:') //세션저장소로 DB를 사용하기 위함.
+    compile('org.mariadb.jdbc:mariadb-java-client:')
 
     testCompile('org.springframework.security:spring-security-test')
     testCompile('org.springframework.boot:spring-boot-starter-test')

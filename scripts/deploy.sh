@@ -33,8 +33,8 @@ echo "> $JAR_NAME 실행"
   # nohup 가 끝나기 전까지 CodeDeploy 도 끝나지 않으니 꼭 이렇게 해야만 한다.
 nohup java -jar \
   -Dspring.config.location=classpath:/application.properties,\
-  classpath:/application-real.properties,\
-  /home/ec2-user/app/application-oauth.properties,\
-  /home/ec2-user/app/application-real-db.properties \
+classpath:/application-real.properties,\
+/home/ec2-user/app/application-oauth.properties,\
+/home/ec2-user/app/application-real-db.properties \
   -Dspring.profiles.active=real \
   $JAR_NAME > $REPOSITORY/nohup.out 2>&1 &

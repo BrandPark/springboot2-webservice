@@ -18,7 +18,7 @@ before_install:   # 스크립트 실행전 수행.
 script: "./gradlew clean build" # 푸시되었을 때 수행하는 명령어. 프로젝트 내부에 둔 gradlew를 통해 clean & build
 
 before_deploy: # deploy 실행전 수행. CodeDeploy는 jar파일을 인식하지 못하므로 압축.
-  - zip -r springboot2-webservice # 현재 위치의 모든 파일을 springboot2-webservice이름으로 압축한다.
+  - zip -r springboot2-webservice * # 현재 위치의 모든 파일을 springboot2-webservice이름으로 압축한다.
   - mkdir -p deploy # deploy라는 디렉터리를 Travis CI 가 실행 중인 위치에서 생성.
   - mv springboot2-webservice.zip deploy/springboot2-webservice.zip # 파일 이동
 
